@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precise - Advanced Healthcare Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #0052a3;
+            --secondary: #00a8e8;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #f5faff;
+            color: var(--dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .logo img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #0056b3;
+        }
+
+        .order-btn {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .order-btn:hover {
+            background-color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 100px;
+            background-color: #e6f0fa;
+            min-height: 500px;
+            margin-top: 80px;
+        }
+
+        .hero-text {
+            max-width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 30px;
+        }
+
+        .hero-img {
+            max-width: 40%;
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Healthcare Solutions Section */
+        .solutions {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .feature-desc {
+            color: var(--gray);
+        }
+
+        /* Products Section */
+        .products {
+            text-align: center;
+            padding: 50px 100px;
+            background-color: #fff;
+        }
+
+        .products-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background-color: #f0e6f6;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .product-card button {
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .product-card button:hover {
+            background-color: #e6f0fa;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 50px 100px;
+            background-color: #fff;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .contact p {
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .contact-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card i {
+            font-size: 24px;
+            color: #0056b3;
+            margin-right: 10px;
+        }
+
+        .contact-card p {
+            font-size: 14px;
+            color: #000;
+            margin: 5px 0;
+        }
+
+        .map-preview {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .map-preview iframe {
+            width: 100%;
+            height: 200px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        .map-preview a {
+            display: block;
+            margin-top: 10px;
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        .map-preview a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal for Product Details */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            position: relative;
+        }
+
+        .modal-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .modal-content h4 {
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .modal-content p {
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .modal-content ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .modal-content li {
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Footer Section */
+        .footer {
+            text-align: center;
+            padding: 50px 100px;
+            background-color: #fff;
+        }
+
+        .footer h2 {
+            font-size: 36px;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .subscribe-form input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .subscribe-form button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #333;
+        }
+
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .footer-logo img {
+            width: 25px;
+            margin-right: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info img {
+            width: 20px;
+        }
+
+        /* Arabic Styling */
+        .arabic {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 30px 20px;
+                text-align: center;
+            }
+
+            .hero-text {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .hero-img {
+                max-width: 80%;
+            }
+
+            .solutions {
+                padding: 50px 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .features {
+                padding: 40px 20px;
+            }
+
+            .products {
+                padding: 30px 20px;
+            }
+
+            .products-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .contact {
+                padding: 30px 20px;
+            }
+
+            .contact-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .contact-card, .map-preview {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .footer {
+                padding: 30px 20px;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .subscribe-form input {
+                width: 100%;
+            }
+
+            .subscribe-form button {
+                width: 100%;
+            }
+
+            .modal-content {
+                width: 90%;
+                max-width: 300px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+            PRECISE
+        </div>
+        <div class="nav-links">
+            <a href="#" data-en="Products" data-ar="المنتجات">Products</a>
+            <a href="#" data-en="Features" data-ar="الميزات">Features</a>
+            <a href="#" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            <a href="#" id="lang-toggle" data-en="عربي" data-ar="English">عربي</a>
+        </div>
+        <a href="#" class="order-btn" data-en="Order Now" data-ar="اطلب الآن">Order Now</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1 data-en="Enjoy the perfect breathing experience" data-ar="استمتع بتجربة تنفس مثالية">Enjoy the perfect breathing experience</h1>
+            <p data-en="Breathe the solutions for a healthier tomorrow" data-ar="تنفس الحلول لمستقبل أكثر صحة">Breathe the solutions for a healthier tomorrow</p>
+            <a href="#" class="order-btn" data-en="Order Now" data-ar="اطلب الآن">Order Now</a>
+        </div>
+        <div class="hero-img">
+            <img src="https://preciseksa.vercel.app/images/nebulizer.png" alt="Nebulizer">
+        </div>
+    </section>
+
+    <!-- Healthcare Solutions Section -->
+    <section class="solutions">
+        <div class="container">
+            <h2 class="section-title" data-en="Advanced Healthcare Solutions" data-ar="حلول صحية متقدمة">Advanced Healthcare Solutions</h2>
+            <p class="section-subtitle" data-en="Discover our innovative medical devices" data-ar="اكتشف أجهزتنا الطبية المبتكرة">Discover our innovative medical devices</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Advanced Spray Technology" data-ar="تقنية الرذاذ المتقدمة">Advanced Spray Technology</h3>
+                    <p class="feature-desc" data-en="State-of-the-art nebulizers equipped with advanced technology for efficient aerosol delivery." data-ar="أجهزة الرذاذ الحديثة المزودة بتقنية متقدمة لتوصيل الأيروسول بكفاءة.">State-of-the-art nebulizers equipped with advanced technology for efficient aerosol delivery.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Compact & Portable" data-ar="صغير ومحمول">Compact & Portable</h3>
+                    <p class="feature-desc" data-en="Designed for convenience, perfect for use at home or on-the-go." data-ar="مصمم للراحة، مثالي للاستخدام في المنزل أو أثناء التنقل.">Designed for convenience, perfect for use at home or on-the-go.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="User-Friendly Interface" data-ar="واجهة سهلة الاستخدام">User-Friendly Interface</h3>
+                    <p class="feature-desc" data-en="Intuitive controls making respiratory therapy effortless." data-ar="عناصر تحكم سهلة تجعل العلاج التنفسي سلسًا.">Intuitive controls making respiratory therapy effortless.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://preciseksa.vercel.app/images/nebulizer.png" alt="Portable Nebulizer">
+                <h3 data-en="Portable Nebulizers" data-ar="أجهزة رذاذ محمولة">Portable Nebulizers</h3>
+                <p data-en="Advanced nebulizer for treating breathing difficulties" data-ar="جهاز رذاذ متقدم لعلاج صعوبات التنفس">Advanced nebulizer for treating breathing difficulties</p>
+                <button onclick="showModal('nebulizer')" data-en="Info" data-ar="معلومات">Info</button>
+            </div>
+            <div class="product-card">
+                <img src="https://preciseksa.vercel.app/images/laser.png" alt="Laser Hair Removal">
+                <h3 data-en="Laser Hair Removal" data-ar="إزالة الشعر بالليزر">Laser Hair Removal</h3>
+                <p data-en="Professional-grade hair removal technology" data-ar="تقنية إزالة الشعر بمستوى احترافي">Professional-grade hair removal technology</p>
+                <button onclick="showModal('laser')" data-en="Info" data-ar="معلومات">Info</button>
+            </div>
+            <div class="product-card">
+                <img src="https://preciseksa.vercel.app/images/heat.png" alt="Heat Therapy">
+                <h3 data-en="Heat Therapy" data-ar="العلاج بالحرارة">Heat Therapy</h3>
+                <p data-en="Innovative solution for pain relief" data-ar="حل مبتكر لتخفيف الألم">Innovative solution for pain relief</p>
+                <button onclick="showModal('heat')" data-en="Info" data-ar="معلومات">Info</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2 data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</h2>
+        <p data-en="We'd love to hear from you" data-ar="نود أن نسمع منك">We'd love to hear from you</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <p><i class="fas fa-map-marker-alt"></i> <span data-en="123 Medical Center Drive, Riyadh, Saudi Arabia 12345" data-ar="123 طريق المركز الطبي، الرياض، المملكة العربية السعودية 12345">123 Medical Center Drive, Riyadh, Saudi Arabia 12345</span></p>
+                <p><i class="fas fa-clock"></i> <span data-en="Monday - Friday: 9:00 AM - 6:00 PM, Saturday: 10:00 AM - 4:00 PM" data-ar="الإثنين - الجمعة: 9:00 ص - 6:00 م، السبت: 10:00 ص - 4:00 م">Monday - Friday: 9:00 AM - 6:00 PM, Saturday: 10:00 AM - 4:00 PM</span></p>
+                <p><i class="fas fa-phone"></i> <span data-en="+966 12 345 6789" data-ar="+966 12 345 6789">+966 12 345 6789</span></p>
+                <p><i class="fas fa-envelope"></i> <span data-en="info@precise-ksa.com" data-ar="info@precise-ksa.com">info@precise-ksa.com</span></p>
+            </div>
+            <div class="map-preview">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.586675385176!2d46.73298531508882!3d24.85089098405747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efb4b7f46e09d%3A0x9397c6204c75ee29!2snoon%20HQ!5e0!3m2!1sen!2sus!4v1698234567890!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                <a href="https://www.google.com/maps/place/noon+HQ/@24.8079884,46.2900597,7.05z/data=!4m6!3m5!1s0x3e2efb4b7f46e09d:0x9397c6204c75ee29!8m2!3d24.8508909!4d46.7354601!16s%2Fg%2F11h3b2kgl8?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" data-en="View on Google Maps" data-ar="عرض على خرائط جوجل">View on Google Maps</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Product Details -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <section class="footer">
+        <div class="contact-info">
+
+            <p data-en="info@precise-ksa.com" data-ar="info@precise-ksa.com">info@precise-ksa.com</p>
+        </div>
+        <h2 data-en="Stay Updated" data-ar="ابقَ على اطلاع">Stay Updated</h2>
+        <p data-en="Subscribe to receive our latest news and special offers" data-ar="اشترك لتلقي آخر الأخبار والعروض الخاصة">Subscribe to receive our latest news and special offers</p>
+        <div class="subscribe-form">
+            <input type="email" placeholder="Enter your email" data-en-placeholder="Enter your email" data-ar-placeholder="أدخل بريدك الإلكتروني">
+            <button data-en="Subscribe" data-ar="اشترك">Subscribe</button>
+        </div>
+        <div class="footer-logo">
+            <span data-en="PRECISE" data-ar="بريسايس">PRECISE</span>
+        </div>
+    </section>
+
+    <script>
+        let isArabic = false;
+
+        const translations = {
+            'nebulizer': {
+                en: {
+                    title: 'Product Details',
+                    overview: 'Device Overview',
+                    overviewItems: [
+                        'Advanced portable nebulizer for effective respiratory therapy',
+                        'Compact and lightweight design for easy carrying',
+                        'Quiet operation for comfortable use',
+                        'Battery-powered for convenience'
+                    ],
+                    features: 'Features',
+                    featureItems: [
+                        'High nebulization rate for efficient medication delivery',
+                        'Multiple operation modes for different medications',
+                        'LED indicators for battery and operation status',
+                        'Easy to clean and maintain',
+                        'Child-friendly design'
+                    ],
+                    specs: 'Specifications',
+                    specItems: [
+                        'Nebulization Rate: ≥0.25ml/min',
+                        'Particle Size: MMAD ≤5μm',
+                        'Tank Capacity: 10ml',
+                        'Battery Life: Up to 60 minutes',
+                        'Charging Time: 2-3 hours'
+                    ]
+                },
+                ar: {
+                    title: 'تفاصيل المنتج',
+                    overview: 'نظرة عامة على الجهاز',
+                    overviewItems: [
+                        'جهاز رذاذ محمول متقدم للعلاج التنفسي الفعال',
+                        'تصميم صغير وخفيف الوزن لسهولة الحمل',
+                        'تشغيل هادئ لاستخدام مريح',
+                        'يعمل بالبطارية للراحة'
+                    ],
+                    features: 'الميزات',
+                    featureItems: [
+                        'معدل رذاذ عالٍ لتوصيل الأدوية بكفاءة',
+                        'أوضاع تشغيل متعددة لأدوية مختلفة',
+                        'مؤشرات LED لحالة البطارية والتشغيل',
+                        'سهل التنظيف والصيانة',
+                        'تصميم مناسب للأطفال'
+                    ],
+                    specs: 'المواصفات',
+                    specItems: [
+                        'معدل الرذاذ: ≥0.25 مل/دقيقة',
+                        'حجم الجسيمات: MMAD ≤5 ميكرومتر',
+                        'سعة الخزان: 10 مل',
+                        'عمر البطارية: حتى 60 دقيقة',
+                        'وقت الشحن: 2-3 ساعات'
+                    ]
+                }
+            },
+            'laser': {
+                en: {
+                    title: 'Product Details',
+                    overview: 'Device Overview',
+                    overviewItems: [
+                        'Professional-grade laser hair removal device',
+                        'Safe for all skin types',
+                        'Ergonomic design for easy handling'
+                    ],
+                    features: 'Features',
+                    featureItems: [
+                        'Adjustable intensity levels',
+                        'Fast treatment sessions',
+                        'Long-lasting results'
+                    ],
+                    specs: 'Specifications',
+                    specItems: [
+                        'Wavelength: 808nm',
+                        'Power: 1200W',
+                        'Treatment Area: 10cm²'
+                    ]
+                },
+                ar: {
+                    title: 'تفاصيل المنتج',
+                    overview: 'نظرة عامة على الجهاز',
+                    overviewItems: [
+                        'جهاز إزالة الشعر بالليزر بمستوى احترافي',
+                        'آمن لجميع أنواع البشرة',
+                        'تصميم مريح لسهولة الاستخدام'
+                    ],
+                    features: 'الميزات',
+                    featureItems: [
+                        'مستويات كثافة قابلة للتعديل',
+                        'جلسات علاج سريعة',
+                        'نتائج طويلة الأمد'
+                    ],
+                    specs: 'المواصفات',
+                    specItems: [
+                        'الطول الموجي: 808 نانومتر',
+                        'الطاقة: 1200 واط',
+                        'منطقة العلاج: 10 سم²'
+                    ]
+                }
+            },
+            'heat': {
+                en: {
+                    title: 'Product Details',
+                    overview: 'Device Overview',
+                    overviewItems: [
+                        'Innovative heat therapy device for pain relief',
+                        'Portable and easy to use',
+                        'Adjustable temperature settings'
+                    ],
+                    features: 'Features',
+                    featureItems: [
+                        'Quick heating technology',
+                        'Soft, comfortable material',
+                        'Automatic shut-off for safety'
+                    ],
+                    specs: 'Specifications',
+                    specItems: [
+                        'Temperature Range: 40°C - 60°C',
+                        'Battery Life: Up to 4 hours',
+                        'Charging Time: 2 hours'
+                    ]
+                },
+                ar: {
+                    title: 'تفاصيل المنتج',
+                    overview: 'نظرة عامة على الجهاز',
+                    overviewItems: [
+                        'جهاز علاج بالحرارة مبتكر لتخفيف الألم',
+                        'محمول وسهل الاستخدام',
+                        'إعدادات درجة حرارة قابلة للتعديل'
+                    ],
+                    features: 'الميزات',
+                    featureItems: [
+                        'تقنية تسخين سريعة',
+                        'مادة ناعمة ومريحة',
+                        'إيقاف تلقائي للسلامة'
+                    ],
+                    specs: 'المواصفات',
+                    specItems: [
+                        'نطاق درجة الحرارة: 40°C - 60°C',
+                        'عمر البطارية: حتى 4 ساعات',
+                        'وقت الشحن: ساعتان'
+                    ]
+                }
+            }
+        };
+
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const elements = document.querySelectorAll('[data-en]');
+            const langToggle = document.getElementById('lang-toggle');
+            const body = document.body;
+
+            elements.forEach(element => {
+                if (isArabic) {
+                    element.textContent = element.getAttribute('data-ar');
+                    if (element.tagName === 'INPUT') {
+                        element.placeholder = element.getAttribute('data-ar-placeholder');
+                    }
+                    element.classList.add('arabic');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                    if (element.tagName === 'INPUT') {
+                        element.placeholder = element.getAttribute('data-en-placeholder');
+                    }
+                    element.classList.remove('arabic');
+                }
+            });
+
+            if (isArabic) {
+                langToggle.textContent = 'English';
+                body.classList.add('arabic');
+            } else {
+                langToggle.textContent = 'عربي';
+                body.classList.remove('arabic');
+            }
+        }
+
+        function showModal(product) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            const lang = isArabic ? 'ar' : 'en';
+            const data = translations[product][lang];
+
+            modalBody.innerHTML = `
+                <h3>${data.title}</h3>
+                <h4>${data.overview}</h4>
+                <ul>
+                    ${data.overviewItems.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                <h4>${data.features}</h4>
+                <ul>
+                    ${data.featureItems.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                <h4>${data.specs}</h4>
+                ${data.specItems.map(item => `<p>${item}</p>`).join('')}
+            `;
+
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+    </script>
+</body>
+</html>
