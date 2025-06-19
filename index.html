@@ -840,13 +840,16 @@
         <div class="contact-info">
             Info@preciseksa.co
         </div>
-        <h2 data-en="Stay Updated" data-ar="ابقَ على اطلاع">Stay Updated</h2>
-        <p data-en="Subscribe to receive our latest news and special offers" data-ar="اشترك لتلقي آخر الأخبار والعروض الخاصة">Subscribe to receive our latest news and special offers</p>
+        <h2 id="subscribeHeading" data-en="Stay Updated" data-ar="ابقَ على اطلاع">Stay Updated</h2>
+        <p id="subscribeDesc" data-en="Subscribe to receive our latest news and special offers" data-ar="اشترك لتلقي آخر الأخبار والعروض الخاصة">Subscribe to receive our latest news and special offers</p>
         <div class="subscribe-form">
             <input type="email" id="subscribeEmail" placeholder="Enter your email" data-en-placeholder="Enter your email" data-ar-placeholder="أدخل بريدك الإلكتروني">
             <button id="subscribeBtn" data-en="Subscribe" data-ar="اشترك">Subscribe</button>
         </div>
         <div id="subscribeMessage"></div>
+        <div id="subscribeThankYou" style="display:none; font-size:18px; color:#28a745; margin-bottom:15px; font-weight:600; text-align:center;">
+            Thank you for subscribing!
+        </div>
         <div class="footer-logo">
             <img src="footerlogo.png" alt="Precise KSA Logo">
         </div>
@@ -1143,6 +1146,9 @@
             const emailInput = document.getElementById('subscribeEmail');
             const messageDiv = document.getElementById('subscribeMessage');
             const subscribeForm = document.querySelector('.subscribe-form');
+            const subscribeHeading = document.getElementById('subscribeHeading');
+            const subscribeDesc = document.getElementById('subscribeDesc');
+            const subscribeThankYou = document.getElementById('subscribeThankYou');
             const email = emailInput.value.trim();
 
             if (!email) {
@@ -1169,9 +1175,13 @@
                 if (response.ok) {
                     showMessage(isArabic ? 'تم الاشتراك بنجاح!' : 'Successfully subscribed!', 'success');
                     emailInput.value = '';
-                    // Hide the subscribe form after success
-                    if (subscribeForm) {
-                        subscribeForm.style.display = 'none';
+                    // Hide the subscribe form, heading, and description after success
+                    if (subscribeForm) subscribeForm.style.display = 'none';
+                    if (subscribeHeading) subscribeHeading.style.display = 'none';
+                    if (subscribeDesc) subscribeDesc.style.display = 'none';
+                    if (subscribeThankYou) {
+                        subscribeThankYou.style.display = 'block';
+                        subscribeThankYou.textContent = isArabic ? 'شكرًا لاشتراكك!' : 'Thank you for subscribing!';
                     }
                 } else {
                     showMessage(isArabic ? data.message || 'فشل الاشتراك. يرجى المحاولة مرة أخرى.' : data.message || 'Subscription failed. Please try again.', 'error');
