@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precise KSA - Advanced Healthcare Solutions</title>
+    <meta name="description" content="Precise KSA offers advanced healthcare solutions including portable nebulizers, laser hair removal devices, and multifunctional incubators. Discover innovative medical devices for a healthier tomorrow.">
+    <meta name="keywords" content="healthcare, precise ksa, nebulizer, portable nebulizers, laser hair removal, medical devices, respiratory therapy, advanced healthcare solutions">
+    <meta name="author" content="Precise KSA">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Precise KSA - Advanced Healthcare Solutions">
+    <meta property="og:description" content="Explore Precise KSA's innovative medical devices including nebulizers, laser hair removal, and portable network products for advanced healthcare solutions.">
+    <meta property="og:image" content="https://preciseksa.co/nebulizer.png">
+    <meta property="og:url" content="https://preciseksa.co">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Precise KSA">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Precise KSA - Advanced Healthcare Solutions">
+    <meta name="twitter:description" content="Discover Precise KSA's advanced healthcare products like nebulizers and laser hair removal devices for a healthier future.">
+    <meta name="twitter:image" content="https://preciseksa.co/nebulizer.png">
+    <link rel="canonical" href="https://preciseksa.co">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Precise KSA",
+        "url": "https://preciseksa.co",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://preciseksa.co/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Precise KSA",
+        "url": "https://preciseksa.co",
+        "logo": "https://preciseksa.co/footerlogo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "Info@preciseksa.co",
+            "contactType": "Customer Service"
+        },
+        "sameAs": [
+            "https://www.instagram.com/preciseksa/?hl=en"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Portable Nebulizer",
+        "image": "https://yourdomain.com/nebulizer.png",
+        "description": "Advanced portable nebulizer for effective respiratory therapy with high nebulization rate and compact design.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Precise KSA"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://preciseksa.co/#products",
+            "priceCurrency": "SAR",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Portable Network Product",
+        "image": "https://preciseksa.co/portable.png",
+        "description": "Multifunctional incubator with air sterilization, humidifier, and digital LED screen for efficient operation.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Precise KSA"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://preciseksa.co/#products",
+            "priceCurrency": "SAR",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        :root {
+            --primary: #00a8e8;
+            --primary-dark: #00a8e8;
+            --secondary: #00a8e8;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+            --baby-blue: #7cb4da7e;
+            --baby-pink: #f0e6f6;
+        }
+
+        body {
+            background-color: #f5faff;
+            color: var(--dark);
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .logo::before {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-image: url('logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: inline-block;
+            margin-right: 10px;
+            position: absolute;
+            left: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .nav-links a:hover {
+            color: #0056b3;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 15px;
+            background-color: #e6f0fa;
+            min-height: 400px;
+            margin-top: 60px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .hero.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-text {
+            max-width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 28px;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .hero-img {
+            max-width: 80%;
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: auto;
+        }
+
+        .solutions {
+            padding: 60px 15px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .solutions.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .features {
+            padding: 40px 15px;
+            background-color: var(--light);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .features.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+            transform: translateY(-4px) scale(1.02);
+            background: linear-gradient(135deg, #f8faff 0%, #e0f7fa 100%);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            color: #fff;
+            font-size: 28px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .feature-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .products {
+            text-align: center;
+            padding: 40px 15px;
+            background-color: #fff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .products.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .products-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow var(--transition);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .product-card p {
+            font-size: 13px;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .product-card button {
+            padding: 8px 16px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .product-card button:hover {
+            background-color: #e6f0fa;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card.nebulizer-card img {
+            background-color: #e8f2f7;
+        }
+
+        .product-card.laser-card img {
+            background-color: var(--baby-pink);
+        }
+
+        .product-card.ptn-card img {
+            background: linear-gradient(135deg, #fff 0%, #e3e6ea 100%);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px 15px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+            transition: background 0.3s;
+        }
+
+        .modal-content.ptn-card {
+            background: linear-gradient(135deg, #fff 0%, #e3e6ea 100%);
+        }
+
+        .modal-content h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .modal-content h4 {
+            font-size: 15px;
+            margin-top: 12px;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .modal-content p {
+            font-size: 13px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .modal-content ul {
+            list-style: disc;
+            padding-left: 15px;
+        }
+
+        .modal-content li {
+            font-size: 13px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 15px;
+            background-color: #fff;
+        }
+
+        .footer h2 {
+            font-size: 24px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .subscribe-form input {
+            padding: 8px 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .subscribe-form button {
+            padding: 8px 16px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .footer-logo {
+            width: 150px;
+            height: 60px;
+            margin: 30px auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .footer-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 0.8px;
+            background-color: #e5e5e5;
+        }
+
+        .footer-logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .copyright-text {
+            margin-top: 12px;
+            color: #666;
+            font-size: 11px;
+            padding-top: 6px;
+        }
+
+        .contact-info {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .arabic {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        @media (min-width: 768px) {
+            .navbar {
+                padding: 8px 30px;
+                height: 70px;
+            }
+
+            .logo::before {
+                width: 150px;
+                height: 150px;
+            }
+
+            .nav-links {
+                gap: 25px;
+                font-size: 15px;
+            }
+
+            .hero {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 40px 30px;
+                min-height: 450px;
+            }
+
+            .hero-text {
+                max-width: 50%;
+                text-align: left;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-text p {
+                font-size: 18px;
+            }
+
+            .hero-img {
+                max-width: 40%;
+            }
+
+            .solutions {
+                padding: 80px 30px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                padding: 60px 30px;
+            }
+
+            .products {
+                padding: 50px 30px;
+            }
+
+            .products-grid {
+                flex-direction: row;
+                gap: 25px;
+            }
+
+            .footer {
+                padding: 40px 30px;
+            }
+
+            .subscribe-form {
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            .subscribe-form input {
+                width: 250px;
+            }
+
+            .subscribe-form button {
+                width: auto;
+            }
+
+            .modal-content {
+                max-width: 450px;
+                padding: 25px 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .navbar {
+                padding: 8px 50px;
+                height: 80px;
+            }
+
+            .logo::before {
+                width: 200px;
+                height: 200px;
+            }
+
+            .nav-links {
+                gap: 30px;
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 50px 50px;
+                min-height: 500px;
+            }
+
+            .hero-text h1 {
+                font-size: 48px;
+            }
+
+            .hero-text p {
+                font-size: 20px;
+            }
+
+            .solutions {
+                padding: 100px 50px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .features {
+                padding: 80px 50px;
+            }
+
+            .products {
+                padding: 60px 50px;
+            }
+
+            .footer {
+                padding: 50px 50px;
+            }
+        }
+
+        #subscribeMessage {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+
+        #subscribeMessage.show {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #subscribeMessage.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        #subscribeMessage.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        #subscribeMessage.processing {
+            background-color: #e9ecef;
+            color: #333;
+            border: 1px solid #bfc9d1;
+        }
+
+        #subscribeMessage::before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+        }
+
+        #subscribeMessage.success::before {
+            content: "\f00c";
+            color: #28a745;
+        }
+
+        #subscribeMessage.error::before {
+            content: "\f00d";
+            color: #dc3545;
+        }
+
+        #subscribeMessage.processing::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            border: 2px solid #bfc9d1;
+            border-top: 2px solid #00a8e8;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"></div>
+        <div class="nav-links">
+            <a href="#products" data-en="Products" data-ar="المنتجات">Products</a>
+            <a href="#features" data-en="Features" data-ar="الميزات">Features</a>
+            <a href="#lang-toggle" id="lang-toggle" data-en="عربي" data-ar="English">عربي</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1 data-en="Enjoy the perfect breathing experience" data-ar="استمتع بتجربة تنفس مثالية">Enjoy the perfect breathing experience</h1>
+            <p data-en="Breathe the solutions for a healthier tomorrow" data-ar="تنفس الحلول لمستقبل أكثر صحة">Breathe the solutions for a healthier tomorrow</p>
+        </div>
+        <div class="hero-img">
+            <img src="nebulizer.png" alt="Portable Nebulizer for Respiratory Therapy">
+        </div>
+    </section>
+
+    <section class="solutions">
+        <div class="container">
+            <h2 class="section-title" data-en="Advanced Healthcare Solutions" data-ar="حلول صحية متقدمة">Advanced Healthcare Solutions</h2>
+            <p class="section-subtitle" data-en="Discover our innovative medical devices" data-ar="اكتشف أجهزتنا الطبية المبتكرة">Discover our innovative medical devices</p>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Advanced Spray Technology" data-ar="تقنية الرذاذ المتقدمة">Advanced Spray Technology</h3>
+                    <p class="feature-desc" data-en="State-of-the-art nebulizers equipped with advanced technology for efficient aerosol delivery." data-ar="أجهزة الرذاذ الحديثة المزودة بتقنية متقدمة لتوصيل الأيروسول بكفاءة.">State-of-the-art nebulizers equipped with advanced technology for efficient aerosol delivery.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Compact & Portable" data-ar="صغير ومحمول">Compact & Portable</h3>
+                    <p class="feature-desc" data-en="Designed for convenience, perfect for use at home or on-the-go." data-ar="مصمم للراحة، مثالي للاستخدام في المنزل أو أثناء التنقل.">Designed for convenience, perfect for use at home or on-the-go.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="User-Friendly Interface" data-ar="واجهة سهلة الاستخدام">User-Friendly Interface</h3>
+                    <p class="feature-desc" data-en="Intuitive controls making respiratory therapy effortless." data-ar="عناصر تحكم سهلة تجعل العلاج التنفسي سلسًا.">Intuitive controls making respiratory therapy effortless.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="products-grid">
+            <div class="product-card nebulizer-card">
+                <img src="nebulizer.png" alt="Portable Nebulizer for Respiratory Therapy">
+                <h3 data-en="Portable Nebulizers" data-ar="أجهزة رذاذ محمولة">Portable Nebulizers</h3>
+                <p data-en="Advanced nebulizer for treating breathing difficulties" data-ar="جهاز رذاذ متقدم لعلاج صعوبات التنفس">Advanced nebulizer for treating breathing difficulties</p>
+                <button class="info-btn" data-product="nebulizer" data-en="Info" data-ar="معلومات">Info</button>
+            </div>
+            <div class="product-card laser-card">
+                <img src="laser.png" alt="Professional Laser Hair Removal Device">
+                <h3 data-en="Laser Hair Removal" data-ar="إزالة الشعر بالليزر">Laser Hair Removal</h3>
+                <p data-en="Professional-grade hair removal technology" data-ar="تقنية إزالة الشعر بمستوى احترافي">Professional-grade hair removal technology</p>
+                <button class="info-btn" data-product="laser" data-en="Info" data-ar="معلومات">Info</button>
+            </div>
+            <div class="product-card ptn-card">
+                <img src="portable.png" alt="Portable Network Product Incubator">
+                <h3 data-en="Portable Network Product" data-ar="المنتج الشبكي المحمول">Portable Network Product</h3>
+                <p data-en="Multifunctional incubator with air sterilization and humidifier" 
+                   data-ar="حاضنة متعددة الوظائف مع تعقيم هوائي وترطيب">Multifunctional incubator with air sterilization and humidifier</p>
+                <button class="info-btn" data-product="portable" data-en="Info" data-ar="معلومات">Info</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">×</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <section id="contact" class="footer">
+        <div class="contact-info">
+            Info@preciseksa.co
+        </div>
+        <h2 id="subscribeHeading" data-en="Stay Updated" data-ar="ابقَ على اطلاع">Stay Updated</h2>
+        <p id="subscribeDesc" data-en="Subscribe to receive our latest news and special offers" data-ar="اشترك لتلقي آخر الأخبار والعروض الخاصة">Subscribe to receive our latest news and special offers</p>
+        <div class="subscribe-form">
+            <input type="email" id="subscribeEmail" placeholder="Enter your email" data-en-placeholder="Enter your email" data-ar-placeholder="أدخل بريدك الإلكتروني">
+            <button id="subscribeBtn" data-en="Subscribe" data-ar="اشترك">Subscribe</button>
+        </div>
+        <div id="subscribeMessage"></div>
+        <div id="subscribeThankYou" style="display:none; font-size:16px; color:#28a745; margin-bottom:12px; font-weight:600; text-align:center;">
+            Thank you for subscribing!
+        </div>
+        <div class="footer-logo">
+            <img src="footerlogo.png" alt="Precise KSA Logo">
+        </div>
+        <div class="copyright-text">© 2025 Precise KSA. All rights reserved.</div>
+    </section>
+
+    <script>
+        let isArabic = false;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.info-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const product = this.getAttribute('data-product');
+                    showModal(product);
+                });
+            });
+
+            document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+
+            document.getElementById('modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+
+            document.getElementById('subscribeBtn').addEventListener('click', handleSubscribe);
+
+            document.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('.hero, .solutions, .features, .products, .footer');
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.top < window.innerHeight * 0.8) {
+                        section.classList.add('in-view');
+                    }
+                });
+            });
+        });
+
+        const translations = {
+            'nebulizer': {
+                en: {
+                    title: 'Product Details',
+                    overview: 'Device Overview',
+                    overviewItems: [
+                        'Advanced portable nebulizer for effective respiratory therapy',
+                        'Compact and lightweight design for easy carrying',
+                        'Quiet operation for comfortable use',
+                        'Battery-powered for convenience'
+                    ],
+                    features: 'Features',
+                    featureItems: [
+                        'High nebulization rate for efficient medication delivery',
+                        'Multiple operation modes for different medications',
+                        'LED indicators for battery and operation status',
+                        'Easy to clean and maintain',
+                        'Child-friendly design'
+                    ],
+                    specs: 'Specifications',
+                    specItems: [
+                        'Nebulization Rate: ≥0.25ml/min',
+                        'Particle Size: MMAD ≤5μm',
+                        'Tank Capacity: 10ml',
+                        'Battery Life: Up to 60 minutes',
+                        'Charging Time: 2-3 hours'
+                    ]
+                },
+                ar: {
+                    title: 'تفاصيل المنتج',
+                    overview: 'نظرة عامة على الجهاز',
+                    overviewItems: [
+                        'جهاز رذاذ محمول متقدم للعلاج التنفسي الفعال',
+                        'تصميم صغير وخفيف الوزن لسهولة الحمل',
+                        'تشغيل هادئ لاستخدام مريح',
+                        'يعمل بالبطارية للراحة'
+                    ],
+                    features: 'الميزات',
+                    featureItems: [
+                        'معدل رذاذ عالٍ لتوصيل الأدوية بكفاءة',
+                        'أوضاع تشغيل متعددة لأدوية مختلفة',
+                        'مؤشرات LED لحالة البطارية والتشغيل',
+                        'سهل التنظيف والصيانة',
+                        'تصميم مناسب للأطفال'
+                    ],
+                    specs: 'المواصفات',
+                    specItems: [
+                        'معدل الرذاذ: ≥0.25 مل/دقيقة',
+                        'حجم الجسيمات: MMAD ≤5 ميكرومتر',
+                        'سعة الخزان: 10 مل',
+                        'عمر البطارية: حتى 60 دقيقة',
+                        'وقت الشحن: 2-3 ساعات'
+                    ]
+                }
+            },
+            'laser': {
+                en: {
+                    title: 'Product Details',
+                    overview: 'Device Overview',
+                    overviewItems: [
+                        'Professional-grade laser hair removal device',
+                        'Safe for all skin types',
+                        'Ergonomic design for easy handling'
+                    ],
+                    features: 'Features',
+                    featureItems: [
+                        'Adjustable intensity levels',
+                        'Fast treatment sessions',
+                        'Long-lasting results'
+                    ],
+                    specs: 'Specifications',
+                    specItems: [
+                        'Wavelength: 808nm',
+                        'Power: 1200W',
+                        'Treatment Area: 10cm²'
+                    ]
+                },
+                ar: {
+                    title: 'تفاصيل المنتج',
+                    overview: 'نظرة عامة على الجهاز',
+                    overviewItems: [
+                        'جهاز إزالة الشعر بالليزر بمستوى احترافي',
+                        'آمن لجميع أنواع البشرة',
+                        'تصميم مريح لسهولة الاستخدام'
+                    ],
+                    features: 'الميزات',
+                    featureItems: [
+                        'مستويات كثافة قابلة للتعديل',
+                        'جلسات علاج سريعة',
+                        'نتائج طويلة الأمد'
+                    ],
+                    specs: 'المواصفات',
+                    specItems: [
+                        'الطول الموجي: 808 نانومتر',
+                        'الطاقة: 1200 واط',
+                        'منطقة العلاج: 10 سم²'
+                    ]
+                }
+            },
+            'portable': {
+                en: {
+                    title: 'Product Details',
+                    overview: 'Device Overview',
+                    overviewItems: [
+                        'Portable network-based egg incubator',
+                        'Equipped with dual-speed motor and air circulation system',
+                        'Digital LED screen with quiet operation'
+                    ],
+                    features: 'Features',
+                    featureItems: [
+                        'Capacity: 32 eggs',
+                        'Dual-speed motor: 1000/1600 RPM',
+                        'Dual-layer air circulation fan system',
+                        'Sterilization power: 241 mW',
+                        'Anion output: 391 mW',
+                        'Effective area: Up to 260 ft³',
+                        'Noise level: ≤ 25 dB',
+                        'Adjustable 3-speed fan',
+                        'UV and Anion sterilization',
+                        'Optional humidifier function (200 mL tank)',
+                        'Mist Output: 180 mL/h',
+                        'LED & UV lamp with long lifespan'
+                    ],
+                    specs: 'Specifications',
+                    specItems: [
+                        'Model: YM-3R9',
+                        'Rated Power: 180W',
+                        'Power Source: USB (DC5V/1A)',
+                        'Product Size: 123.6 × 110.5 × 68.3 mm',
+                        'Packaging Size: 180 × 145 × 80 mm',
+                        'Tank Weight: ~3.7 g',
+                        'UV Lamp Life: ≥ 10,000 hrs',
+                        'LED Life: ≥ 30,000 hrs',
+                        'Egg Tray: 2 × 500 mL',
+                        'Total Capacity: 1000 mL',
+                        'Box Size: 615 × 380 × 345 mm'
+                    ]
+                },
+                ar: {
+                    title: 'تفاصيل المنتج',
+                    overview: 'نظرة عامة على الجهاز',
+                    overviewItems: [
+                        'حاضنة بيض شبكية محمولة',
+                        'مزودة بمحرك مزدوج السرعة ونظام تدوير هواء',
+                        'شاشة LED رقمية وتشغيل هادئ'
+                    ],
+                    features: 'الميزات',
+                    featureItems: [
+                        'السعة: 32 بيضة',
+                        'محرك مزدوج السرعة: 1000/1600 دورة/دقيقة',
+                        'نظام مروحة بتدوير هواء بطبقتين',
+                        'قوة التعقيم: 241 ملي واط',
+                        'إخراج الأيونات السالبة: 391 ملي واط',
+                        'المساحة الفعالة: حتى 260 قدم³',
+                        'مستوى الضوضاء: ≤ 25 ديسيبل',
+                        'مروحة قابلة للتعديل بـ 3 سرعات',
+                        'تعقيم بالأشعة فوق البنفسجية وأيونات سالبة',
+                        'وظيفة ترطيب اختيارية (خزان 200 مل)',
+                        'معدل إخراج الرذاذ: 180 مل/ساعة',
+                        'مصابيح UV وLED بعمر طويل'
+                    ],
+                    specs: 'المواصفات',
+                    specItems: [
+                        'الطراز: YM-3R9',
+                        'الطاقة المقدرة: 180 واط',
+                        'مصدر الطاقة: USB (5 فولت / 1 أمبير)',
+                        'حجم المنتج: 123.6 × 110.5 × 68.3 مم',
+                        'حجم التغليف: 180 × 145 × 80 مم',
+                        'وزن الخزان: ~3.7 جرام',
+                        'عمر مصباح UV: ≥ 10,000 ساعة',
+                        'عمر LED: ≥ 30,000 ساعة',
+                        'صينية البيض: 2 × 500 مل',
+                        'السعة الإجمالية: 1000 مل',
+                        'أبعاد الصندوق: 615 × 380 × 345 مم'
+                    ]
+                }
+            }
+        };
+
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const elements = document.querySelectorAll('[data-en]');
+            const langToggle = document.getElementById('lang-toggle');
+            const body = document.body;
+
+            elements.forEach(element => {
+                if (isArabic) {
+                    element.textContent = element.getAttribute('data-ar');
+                    if (element.tagName === 'INPUT') {
+                        element.placeholder = element.getAttribute('data-ar-placeholder');
+                    }
+                    element.classList.add('arabic');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                    if (element.tagName === 'INPUT') {
+                        element.placeholder = element.getAttribute('data-en-placeholder');
+                    }
+                    element.classList.remove('arabic');
+                }
+            });
+
+            if (isArabic) {
+                langToggle.textContent = 'English';
+                body.classList.add('arabic');
+            } else {
+                langToggle.textContent = 'عربي';
+                body.classList.remove('arabic');
+            }
+        }
+
+        function showModal(product) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            const lang = isArabic ? 'ar' : 'en';
+            const data = translations[product][lang];
+
+            modalBody.classList.remove('ptn-card');
+            if (product === 'portable') {
+                modalBody.classList.add('ptn-card');
+            }
+
+            modalBody.innerHTML = `
+                <h3>${data.title}</h3>
+                <h4>${data.overview}</h4>
+                <ul>
+                    ${data.overviewItems.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                <h4>${data.features}</h4>
+                <ul>
+                    ${data.featureItems.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                <h4>${data.specs}</h4>
+                ${data.specItems.map(item => `<p>${item}</p>`).join('')}
+            `;
+
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        async function handleSubscribe() {
+            const emailInput = document.getElementById('subscribeEmail');
+            const messageDiv = document.getElementById('subscribeMessage');
+            const subscribeForm = document.querySelector('.subscribe-form');
+            const subscribeHeading = document.getElementById('subscribeHeading');
+            const subscribeDesc = document.getElementById('subscribeDesc');
+            const subscribeThankYou = document.getElementById('subscribeThankYou');
+            const email = emailInput.value.trim();
+
+            if (!email) {
+                showMessage(isArabic ? 'الرجاء إدخال بريدك الإلكتروني' : 'Please enter your email address', 'error');
+                return;
+            }
+
+            showMessage(isArabic ? 'جاري المعالجة...' : 'Processing...', 'processing');
+
+            try {
+                const response = await fetch('https://precise-backend.onrender.com/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ email }),
+                    mode: 'cors'
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showMessage(isArabic ? 'تم الاشتراك بنجاح!' : 'Successfully subscribed!', 'success');
+                    emailInput.value = '';
+                    if (subscribeForm) subscribeForm.style.display = 'none';
+                    if (subscribeHeading) subscribeHeading.style.display = 'none';
+                    if (subscribeDesc) subscribeDesc.style.display = 'none';
+                    if (subscribeThankYou) {
+                        subscribeThankYou.style.display = 'block';
+                        subscribeThankYou.textContent = isArabic ? 'شكرًا لاشتراكك!' : 'Thank you for subscribing!';
+                    }
+                } else {
+                    showMessage(isArabic ? data.message || 'فشل الاشتراك. يرجى المحاولة مرة أخرى.' : data.message || 'Subscription failed. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Subscription error:', error);
+                if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+                    showMessage(isArabic ? 'لا يمكن الاتصال بالخادم. يرجى التحقق من اتصال الشبكة.' : 'Cannot connect to the server. Please check your network connection.', 'error');
+                } else {
+                    showMessage(isArabic ? 'حدث خطأ غير متوقع. يرجى المحاولة لاحقًا.' : 'An unexpected error occurred. Please try again later.', 'error');
+                }
+            }
+        }
+
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('subscribeMessage');
+            messageDiv.textContent = message;
+            if (type === 'success') {
+                messageDiv.className = 'success show';
+                messageDiv.style.backgroundColor = '';
+                messageDiv.style.color = '';
+                messageDiv.style.border = '';
+            } else if (type === 'error') {
+                messageDiv.className = 'error show';
+                messageDiv.style.backgroundColor = '';
+                messageDiv.style.color = '';
+                messageDiv.style.border = '';
+            } else if (type === 'processing') {
+                messageDiv.className = 'processing show';
+                messageDiv.style.backgroundColor = '';
+                messageDiv.style.color = '';
+                messageDiv.style.border = '';
+            }
+            messageDiv.style.display = 'flex';
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            if (type === 'success' || type === 'error') {
+                const duration = type === 'error' ? 8000 : 5000;
+                setTimeout(() => {
+                    messageDiv.classList.remove('show');
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                        if (type === 'success' || type === 'error') {
+                            messageDiv.style.backgroundColor = '';
+                            messageDiv.style.color = '';
+                            messageDiv.style.border = '';
+                        }
+                    }, 400);
+                }, duration);
+            }
+        }
+    </script>
+</body>
+</html>
