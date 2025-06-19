@@ -4,9 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Precise KSA - Advanced Healthcare Solutions</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Precise KSA offers advanced healthcare solutions including portable nebulizers, laser hair removal devices, and multifunctional incubators. Discover innovative medical devices for a healthier tomorrow.">
+    <meta name="keywords" content="healthcare, precise ksa, nebulizer, portable nebulizers, laser hair removal, medical devices, respiratory therapy, advanced healthcare solutions">
+    <meta name="author" content="Precise KSA">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Precise KSA - Advanced Healthcare Solutions">
+    <meta property="og:description" content="Explore Precise KSA's innovative medical devices including nebulizers, laser hair removal, and portable network products for advanced healthcare solutions.">
+    <meta property="og:image" content="https://preciseksa.co/nebulizer.png">
+    <meta property="og:url" content="https://preciseksa.co">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Precise KSA">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Precise KSA - Advanced Healthcare Solutions">
+    <meta name="twitter:description" content="Discover Precise KSA's advanced healthcare products like nebulizers and laser hair removal devices for a healthier future.">
+    <meta name="twitter:image" content="https://preciseksa.co/nebulizer.png">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://preciseksa.co">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Structured Data (Schema.org) for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Precise KSA",
+        "url": "https://preciseksa.co",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://preciseksa.co/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Precise KSA",
+        "url": "https://preciseksa.co",
+        "logo": "https://preciseksa.co/footerlogo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "Info@preciseksa.co",
+            "contactType": "Customer Service"
+        },
+        "sameAs": [
+            "https://www.instagram.com/preciseksa/?hl=en"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Portable Nebulizer",
+        "image": "https://yourdomain.com/nebulizer.png",
+        "description": "Advanced portable nebulizer for effective respiratory therapy with high nebulization rate and compact design.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Precise KSA"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://preciseksa.co/#products",
+            "priceCurrency": "SAR",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Portable Network Product",
+        "image": "https://preciseksa.co/portable.png",
+        "description": "Multifunctional incubator with air sterilization, humidifier, and digital LED screen for efficient operation.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Precise KSA"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://preciseksa.co/#products",
+            "priceCurrency": "SAR",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -184,47 +273,53 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+            margin: 0 auto;
+            max-width: 1000px;
         }
 
         .feature-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 40px 30px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 36px 24px 28px 24px;
             text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
         }
 
         .feature-card:hover {
-            background: linear-gradient(135deg, #ffffff 0%, var(--baby-blue) 100%);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+            transform: translateY(-6px) scale(1.03);
+            background: linear-gradient(135deg, #f8faff 0%, #e0f7fa 100%);
         }
 
         .feature-icon {
-            width: útiles 80px;
+            width: 80px;
             height: 80px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            color: white;
-            font-size: 32px;
+            margin: 0 auto 22px auto;
+            color: #fff;
+            font-size: 36px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .feature-title {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: var(--dark);
         }
 
         .feature-desc {
             color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .products {
@@ -298,9 +393,12 @@
             background-color: #e8f2f7;
         }
 
-        .product-card.laser-card img,
-        .product-card.ptn-card img {
+        .product-card.laser-card img {
             background-color: var(--baby-pink);
+        }
+
+        .product-card.ptn-card img {
+            background: linear-gradient(135deg, #fff 0%, #e3e6ea 100%);
         }
 
         .modal {
@@ -330,7 +428,7 @@
         }
 
         .modal-content.ptn-card {
-            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            background: linear-gradient(135deg, #fff 0%, #e3e6ea 100%);
         }
 
         .modal-content h3 {
@@ -577,6 +675,15 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+
+        #subscribeMessage.show {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
         }
 
         #subscribeMessage.success {
@@ -625,7 +732,7 @@
             <p data-en="Breathe the solutions for a healthier tomorrow" data-ar="تنفس الحلول لمستقبل أكثر صحة">Breathe the solutions for a healthier tomorrow</p>
         </div>
         <div class="hero-img">
-            <img src="nebulizer.png" alt="Nebulizer">
+            <img src="nebulizer.png" alt="Portable Nebulizer for Respiratory Therapy">
         </div>
     </section>
 
@@ -675,19 +782,19 @@
     <section id="products" class="products">
         <div class="products-grid">
             <div class="product-card nebulizer-card">
-                <img src="nebulizer.png" alt="Portable Nebulizer">
+                <img src="nebulizer.png" alt="Portable Nebulizer for Respiratory Therapy">
                 <h3 data-en="Portable Nebulizers" data-ar="أجهزة رذاذ محمولة">Portable Nebulizers</h3>
                 <p data-en="Advanced nebulizer for treating breathing difficulties" data-ar="جهاز رذاذ متقدم لعلاج صعوبات التنفس">Advanced nebulizer for treating breathing difficulties</p>
                 <button class="info-btn" data-product="nebulizer" data-en="Info" data-ar="معلومات">Info</button>
             </div>
             <div class="product-card laser-card">
-                <img src="laser.png" alt="Laser Hair Removal">
+                <img src="laser.png" alt="Professional Laser Hair Removal Device">
                 <h3 data-en="Laser Hair Removal" data-ar="إزالة الشعر بالليزر">Laser Hair Removal</h3>
                 <p data-en="Professional-grade hair removal technology" data-ar="تقنية إزالة الشعر بمستوى احترافي">Professional-grade hair removal technology</p>
                 <button class="info-btn" data-product="laser" data-en="Info" data-ar="معلومات">Info</button>
             </div>
             <div class="product-card ptn-card">
-                <img src="portable.png" alt="Portable Network Product">
+                <img src="portable.png" alt="Portable Network Product Incubator">
                 <h3 data-en="Portable Network Product" data-ar="المنتج الشبكي المحمول">Portable Network Product</h3>
                 <p data-en="Multifunctional incubator with air sterilization and humidifier" 
                    data-ar="حاضنة متعددة الوظائف مع تعقيم هوائي وترطيب">Multifunctional incubator with air sterilization and humidifier</p>
@@ -717,7 +824,7 @@
         </div>
         <div id="subscribeMessage"></div>
         <div class="footer-logo">
-            <img src="footerlogo.png" alt="Precise Logo">
+            <img src="footerlogo.png" alt="Precise KSA Logo">
         </div>
         <div class="copyright-text">© 2025 Precise KSA. All rights reserved.</div>
     </section>
@@ -1051,10 +1158,17 @@
             const messageDiv = document.getElementById('subscribeMessage');
             messageDiv.textContent = message;
             messageDiv.className = type === 'success' ? 'success show' : 'error show';
+            messageDiv.style.display = 'flex';
+
+            // Scroll into view for accessibility
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
             const duration = type === 'error' ? 8000 : 5000;
             setTimeout(() => {
                 messageDiv.classList.remove('show');
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 400); // match the transition duration
             }, duration);
         }
     </script>
