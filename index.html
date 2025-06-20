@@ -1168,6 +1168,8 @@
                     `;
                     document.getElementById('unsubscribeBtn').onclick = handleUnsubscribeClick;
                 } else {
+                    // Log error to console
+                    console.error('Subscribe error:', data.message || data);
                     // Restore input and button, show error below
                     wrapper.innerHTML = `
                         <input type='email' id='subscribeEmail' class='subscribe-input' placeholder='${isArabic ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}' data-en-placeholder='Enter your email' data-ar-placeholder='أدخل بريدك الإلكتروني' style='width: 100%;'>
@@ -1178,6 +1180,8 @@
                     document.getElementById('subscribeBtn').onclick = handleSubscribeClick;
                 }
             } catch (error) {
+                // Log error to console
+                console.error('Subscribe network/server error:', error);
                 // Restore input and button, show error below
                 wrapper.innerHTML = `
                     <input type='email' id='subscribeEmail' class='subscribe-input' placeholder='${isArabic ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}' data-en-placeholder='Enter your email' data-ar-placeholder='أدخل بريدك الإلكتروني' style='width: 100%;'>
