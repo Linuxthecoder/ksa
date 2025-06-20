@@ -1145,7 +1145,15 @@
             `;
             // Simulate API call
             try {
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                const response = await fetch('https://precise-backend.onrender.com/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ email }),
+                    mode: 'cors'
+                });
                 // Simulate 80% success rate
                 const success = Math.random() > 0.2;
                 if (success) {
