@@ -489,15 +489,20 @@
         }
 
         .subscribe-form {
+            position: relative;
             display: flex;
-            justify-content: center;
+            flex-direction: row;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
         }
 
         .subscribe-form input {
             padding: 8px 12px;
-            width: 300px;
+            width: 100%;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
@@ -640,15 +645,12 @@
 
             .subscribe-form {
                 flex-direction: column;
-                gap: 10px;
-            }
-
-            .subscribe-form input {
-                width: 100%;
+                gap: 8px;
+                max-width: 100%;
             }
 
             .subscribe-form button {
-                width: 100%;
+                margin-left: 0;
             }
 
             .modal-content {
@@ -735,6 +737,22 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        .subscribe-tooltip {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            margin-top: 4px;
+            background: #fffbe6;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            border-radius: 4px;
+            padding: 6px 12px;
+            font-size: 13px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 10;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -842,9 +860,10 @@
         </div>
         <h2 id="subscribeHeading" data-en="Stay Updated" data-ar="ابقَ على اطلاع">Stay Updated</h2>
         <p id="subscribeDesc" data-en="Subscribe to receive our latest news and special offers" data-ar="اشترك لتلقي آخر الأخبار والعروض الخاصة">Subscribe to receive our latest news and special offers</p>
-        <div class="subscribe-form">
-            <input type="email" id="subscribeEmail" placeholder="Enter your email" data-en-placeholder="Enter your email" data-ar-placeholder="أدخل بريدك الإلكتروني">
-            <button id="subscribeBtn" data-en="Subscribe" data-ar="اشترك">Subscribe</button>
+        <div class="subscribe-form" style="position:relative; justify-content:center; align-items:center; margin: 0 auto; max-width: 400px;">
+            <input type="email" id="subscribeEmail" placeholder="Enter your email" data-en-placeholder="Enter your email" data-ar-placeholder="أدخل بريدك الإلكتروني" style="width: 100%;">
+            <button id="subscribeBtn" data-en="Subscribe" data-ar="اشترك" style="margin-left: 10px;">Subscribe</button>
+            <div id="subscribeTooltip" class="subscribe-tooltip" style="display:none;">You have already subscribed.</div>
         </div>
         <div id="subscribeMessage"></div>
         <div id="subscribeThankYou" style="display:none; font-size:18px; color:#28a745; margin-bottom:15px; font-weight:600; text-align:center;">
@@ -858,6 +877,7 @@
 
     <script>
         let isArabic = false;
+        let isSubscribed = false;
 
         // Add event listeners after DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
@@ -895,6 +915,13 @@
                     }
                 });
             });
+
+            const emailInput = document.getElementById('subscribeEmail');
+            const subscribeTooltip = document.getElementById('subscribeTooltip');
+            emailInput.addEventListener('focus', showTooltipIfSubscribed);
+            emailInput.addEventListener('mouseover', showTooltipIfSubscribed);
+            emailInput.addEventListener('blur', () => subscribeTooltip.style.display = 'none');
+            emailInput.addEventListener('mouseout', () => subscribeTooltip.style.display = 'none');
         });
 
         const translations = {
@@ -1142,12 +1169,21 @@
             modal.style.display = 'none';
         }
 
+        function showTooltipIfSubscribed() {
+            if (isSubscribed) {
+                const subscribeTooltip = document.getElementById('subscribeTooltip');
+                subscribeTooltip.textContent = isArabic ? 'لقد اشتركت بالفعل.' : 'You have already subscribed.';
+                subscribeTooltip.style.display = 'block';
+            } else {
+                const subscribeTooltip = document.getElementById('subscribeTooltip');
+                subscribeTooltip.style.display = 'none';
+            }
+        }
+
         async function handleSubscribe() {
             const emailInput = document.getElementById('subscribeEmail');
             const messageDiv = document.getElementById('subscribeMessage');
-            const subscribeForm = document.querySelector('.subscribe-form');
-            const subscribeHeading = document.getElementById('subscribeHeading');
-            const subscribeDesc = document.getElementById('subscribeDesc');
+            const subscribeTooltip = document.getElementById('subscribeTooltip');
             const subscribeThankYou = document.getElementById('subscribeThankYou');
             const email = emailInput.value.trim();
 
@@ -1175,13 +1211,10 @@
                 if (response.ok) {
                     showMessage(isArabic ? 'تم الاشتراك بنجاح!' : 'Successfully subscribed!', 'success');
                     emailInput.value = '';
-                    // Hide the subscribe form, heading, and description after success
-                    if (subscribeForm) subscribeForm.style.display = 'none';
-                    if (subscribeHeading) subscribeHeading.style.display = 'none';
-                    if (subscribeDesc) subscribeDesc.style.display = 'none';
+                    isSubscribed = true;
                     if (subscribeThankYou) {
                         subscribeThankYou.style.display = 'block';
-                        subscribeThankYou.textContent = isArabic ? 'شكرًا لاشتراكك!' : 'Thank you for subscribing!';
+                        subscribeThankYou.textContent = isArabic ? subscribeThankYou.getAttribute('data-ar') : subscribeThankYou.getAttribute('data-en');
                     }
                 } else {
                     showMessage(isArabic ? data.message || 'فشل الاشتراك. يرجى المحاولة مرة أخرى.' : data.message || 'Subscription failed. Please try again.', 'error');
