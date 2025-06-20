@@ -671,11 +671,49 @@
             width: 28px;
             height: 28px;
             animation: spin 0.8s linear infinite;
-            margin: 0 auto;
+            margin: 0 10px 0 0;
+            display: inline-block;
+            vertical-align: middle;
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+        .subscribe-success {
+            color: #28a745;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .subscribe-error {
+            color: #dc3545;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .subscribe-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .subscribe-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .subscribe-input.success {
+            border: 1.5px solid #28a745;
+            color: #28a745;
+        }
+        .subscribe-input.error {
+            border: 1.5px solid #dc3545;
+            color: #dc3545;
         }
     </style>
 </head>
@@ -783,14 +821,10 @@
         </div>
         <h2 id="subscribeHeading" data-en="Stay Updated" data-ar="ابقَ على اطلاع">Stay Updated</h2>
         <p id="subscribeDesc" data-en="Subscribe to receive our latest news and special offers" data-ar="اشترك لتلقي آخر الأخبار والعروض الخاصة">Subscribe to receive our latest news and special offers</p>
-        <div class="subscribe-form" id="subscribeFormContainer" style="position:relative; align-items:center; justify-content:center; margin: 0 auto; max-width: 400px;">
+        <div class="subscribe-form" id="subscribeFormWrapper" style="position:relative; align-items:center; justify-content:center; margin: 0 auto; max-width: 400px;">
             <input type="email" id="subscribeEmail" placeholder="Enter your email" data-en-placeholder="Enter your email" data-ar-placeholder="أدخل بريدك الإلكتروني" style="width: 100%;">
             <button id="subscribeBtn" data-en="Subscribe" data-ar="اشترك" style="margin-left: 10px; background:#000; color:#fff;">Subscribe</button>
             <div id="subscribeTooltip" class="subscribe-tooltip" style="display:none;">You have already subscribed.</div>
-            <div id="subscribeLoader" style="display:none; width:100%; justify-content:center; align-items:center; padding:10px 0;">
-                <div class="loader-spinner"></div>
-            </div>
-            <div id="subscribeSuccess" style="display:none; font-size:16px; color:#28a745; font-weight:600; text-align:center; width:100%;">Successfully subscribed!</div>
         </div>
         <div class="footer-logo">
             <img src="footerlogo.png" alt="Precise KSA Logo">
@@ -837,7 +871,7 @@
             document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
 
             // Add subscribe button listener
-            document.getElementById('subscribeBtn').addEventListener('click', handleSubscription);
+            document.getElementById('subscribeBtn').addEventListener('click', handleSubscribeClick);
             
             // Trigger scroll animation on page load
             window.scrollTo(0, 0);
@@ -1111,65 +1145,80 @@
             }
         }
         
-        function handleSubscription() {
+        async function handleSubscribeClick() {
+            const wrapper = document.getElementById('subscribeFormWrapper');
             const emailInput = document.getElementById('subscribeEmail');
-            const subscribeBtn = document.getElementById('subscribeBtn');
-            const subscribeForm = document.getElementById('subscribeFormContainer');
-            const loader = document.getElementById('subscribeLoader');
-            const successMsg = document.getElementById('subscribeSuccess');
             const email = emailInput.value.trim();
-
-            // Check if email is empty
-            if (!email) {
-                showSubscribeError(isArabic ? 'الرجاء إدخال عنوان البريد الإلكتروني' : 'Please enter your email address');
+            // Remove previous error/success
+            emailInput.classList.remove('error', 'success');
+            removeInlineMessage(wrapper);
+            // Validate email
+            if (!validateEmail(email)) {
+                emailInput.classList.add('error');
+                showInlineMessage(wrapper, 'Please enter a valid email address', 'subscribe-error');
                 return;
             }
-            // Validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showSubscribeError(isArabic ? 'يرجى إدخال عنوان بريد إلكتروني صالح' : 'Please enter a valid email address');
-                return;
-            }
-            // Hide form fields and button
-            emailInput.style.display = 'none';
-            subscribeBtn.style.display = 'none';
-            loader.style.display = 'flex';
-            successMsg.style.display = 'none';
-
+            // Show loader
+            wrapper.innerHTML = `
+                <div class='subscribe-loader' style='display:flex; align-items:center; justify-content:center; gap:10px;'>
+                    <span class='loader-spinner'></span>
+                    <span>Subscribing...</span>
+                </div>
+            `;
             // Simulate API call
-            setTimeout(() => {
-                // Simulate success
-                loader.style.display = 'none';
-                successMsg.textContent = isArabic ? 'تم الاشتراك بنجاح!' : 'Successfully subscribed!';
-                successMsg.style.display = 'block';
-                emailInput.value = '';
-                isSubscribed = true;
-                // Hide success and show form again after 2.5s
-                setTimeout(() => {
-                    successMsg.style.display = 'none';
-                    emailInput.style.display = '';
-                    subscribeBtn.style.display = '';
-                }, 2500);
-            }, 1500);
-        }
-        function showSubscribeError(msg) {
-            const subscribeForm = document.getElementById('subscribeFormContainer');
-            let errorDiv = document.getElementById('subscribeError');
-            if (!errorDiv) {
-                errorDiv = document.createElement('div');
-                errorDiv.id = 'subscribeError';
-                errorDiv.style.color = '#dc3545';
-                errorDiv.style.fontSize = '14px';
-                errorDiv.style.fontWeight = '500';
-                errorDiv.style.margin = '8px 0';
-                errorDiv.style.textAlign = 'center';
-                subscribeForm.appendChild(errorDiv);
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                // Simulate 80% success rate
+                const success = Math.random() > 0.2;
+                if (success) {
+                    isSubscribed = true;
+                    wrapper.innerHTML = `
+                        <input type='text' class='subscribe-input success' value='You have subscribed successfully!' readonly style='width:100%; margin-bottom:10px;'>
+                        <button id='unsubscribeBtn' class='subscribe-btn'>Unsubscribe</button>
+                    `;
+                    document.getElementById('unsubscribeBtn').onclick = handleUnsubscribeClick;
+                } else {
+                    showFormWithError(wrapper, 'Subscription failed. Please try again.');
+                }
+            } catch (error) {
+                showFormWithError(wrapper, 'An error occurred. Please try again later.');
             }
-            errorDiv.textContent = msg;
-            errorDiv.style.display = 'block';
-            setTimeout(() => {
-                errorDiv.style.display = 'none';
-            }, 2500);
+        }
+        function handleUnsubscribeClick() {
+            isSubscribed = false;
+            resetForm();
+        }
+        function resetForm() {
+            const wrapper = document.getElementById('subscribeFormWrapper');
+            wrapper.innerHTML = `
+                <input type="email" id="subscribeEmail" placeholder="Enter your email" style="width: 100%;">
+                <button id="subscribeBtn" class="subscribe-btn">Subscribe</button>
+                <div id="subscribeTooltip" class="subscribe-tooltip" style="display:none;">You have already subscribed.</div>
+            `;
+            document.getElementById('subscribeBtn').onclick = handleSubscribeClick;
+        }
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        function showInlineMessage(wrapper, message, className) {
+            removeInlineMessage(wrapper);
+            const msg = document.createElement('div');
+            msg.className = className;
+            msg.textContent = message;
+            wrapper.appendChild(msg);
+        }
+        function removeInlineMessage(wrapper) {
+            const prev = wrapper.querySelector('.subscribe-error, .subscribe-success');
+            if (prev) prev.remove();
+        }
+        function showFormWithError(wrapper, errorMsg) {
+            wrapper.innerHTML = `
+                <input type="email" id="subscribeEmail" class="subscribe-input error" placeholder="Enter your email" style="width: 100%;">
+                <button id="subscribeBtn" class="subscribe-btn">Subscribe</button>
+                <div class="subscribe-error">${errorMsg}</div>
+            `;
+            document.getElementById('subscribeBtn').onclick = handleSubscribeClick;
         }
     </script>
 </body>
