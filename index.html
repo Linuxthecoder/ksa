@@ -1139,6 +1139,9 @@
             const emailInput = document.getElementById('subscribeEmail');
             const subscribeBtn = document.getElementById('subscribeBtn');
             const email = emailInput.value.trim();
+            // Remove any previous error message
+            const prevError = document.getElementById('subscribeErrorMsg');
+            if (prevError) prevError.remove();
             if (!email) {
                 emailInput.classList.add('error');
                 emailInput.value = isArabic ? 'يرجى إدخال بريدك الإلكتروني' : 'Please enter your email address';
@@ -1165,16 +1168,22 @@
                     `;
                     document.getElementById('unsubscribeBtn').onclick = handleUnsubscribeClick;
                 } else {
+                    // Restore input and button, show error below
                     wrapper.innerHTML = `
-                        <input type='text' class='subscribe-input error' value='${data.message ? data.message : (isArabic ? 'فشل الاشتراك. حاول مرة أخرى.' : 'Subscription failed. Please try again.')}' readonly style='width:100%;'>
-                        <button id='subscribeBtn' class='subscribe-btn' style='margin-left:10px;'>${isArabic ? 'اشترك' : 'Subscribe'}</button>
+                        <input type='email' id='subscribeEmail' class='subscribe-input' placeholder='${isArabic ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}' data-en-placeholder='Enter your email' data-ar-placeholder='أدخل بريدك الإلكتروني' style='width: 100%;'>
+                        <button id='subscribeBtn' class='subscribe-btn' data-en='Subscribe' data-ar='اشترك' style='margin-left: 10px;'>${isArabic ? 'اشترك' : 'Subscribe'}</button>
+                        <div id='subscribeTooltip' class='subscribe-tooltip' style='display:none;'>${isArabic ? 'لقد اشتركت بالفعل.' : 'You have already subscribed.'}</div>
+                        <div id='subscribeErrorMsg' style='color:#dc3545; font-size:13px; margin-top:6px;'>${data.message ? data.message : (isArabic ? 'فشل الاشتراك. حاول مرة أخرى.' : 'Subscription failed. Please try again.')}</div>
                     `;
                     document.getElementById('subscribeBtn').onclick = handleSubscribeClick;
                 }
             } catch (error) {
+                // Restore input and button, show error below
                 wrapper.innerHTML = `
-                    <input type='text' class='subscribe-input error' value='${isArabic ? 'حدث خطأ. حاول لاحقًا.' : 'An error occurred. Please try again later.'}' readonly style='width:100%;'>
-                    <button id='subscribeBtn' class='subscribe-btn' style='margin-left:10px;'>${isArabic ? 'اشترك' : 'Subscribe'}</button>
+                    <input type='email' id='subscribeEmail' class='subscribe-input' placeholder='${isArabic ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}' data-en-placeholder='Enter your email' data-ar-placeholder='أدخل بريدك الإلكتروني' style='width: 100%;'>
+                    <button id='subscribeBtn' class='subscribe-btn' data-en='Subscribe' data-ar='اشترك' style='margin-left: 10px;'>${isArabic ? 'اشترك' : 'Subscribe'}</button>
+                    <div id='subscribeTooltip' class='subscribe-tooltip' style='display:none;'>${isArabic ? 'لقد اشتركت بالفعل.' : 'You have already subscribed.'}</div>
+                    <div id='subscribeErrorMsg' style='color:#dc3545; font-size:13px; margin-top:6px;'>${isArabic ? 'حدث خطأ. حاول لاحقًا.' : 'An error occurred. Please try again later.'}</div>
                 `;
                 document.getElementById('subscribeBtn').onclick = handleSubscribeClick;
             }
