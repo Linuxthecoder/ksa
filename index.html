@@ -663,6 +663,8 @@
             }
         }
 
+        /* Remove previous success message CSS */
+        .subscribe-success, .subscribe-input.success { display: none !important; }
         /* Loader Spinner for Subscribe */
         .loader-spinner {
             border: 3px solid #f3f3f3;
@@ -679,20 +681,6 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .subscribe-success {
-            color: #28a745;
-            font-size: 16px;
-            font-weight: 600;
-            text-align: center;
-            margin: 10px 0;
-        }
-        .subscribe-error {
-            color: #dc3545;
-            font-size: 14px;
-            font-weight: 500;
-            text-align: center;
-            margin: 10px 0;
-        }
         .subscribe-btn {
             background: #000;
             color: #fff;
@@ -706,14 +694,6 @@
         .subscribe-btn:disabled {
             opacity: 0.7;
             cursor: not-allowed;
-        }
-        .subscribe-input.success {
-            border: 1.5px solid #28a745;
-            color: #28a745;
-        }
-        .subscribe-input.error {
-            border: 1.5px solid #dc3545;
-            color: #dc3545;
         }
     </style>
 </head>
@@ -822,8 +802,8 @@
         <h2 id="subscribeHeading" data-en="Stay Updated" data-ar="ابقَ على اطلاع">Stay Updated</h2>
         <p id="subscribeDesc" data-en="Subscribe to receive our latest news and special offers" data-ar="اشترك لتلقي آخر الأخبار والعروض الخاصة">Subscribe to receive our latest news and special offers</p>
         <div class="subscribe-form" id="subscribeFormWrapper" style="position:relative; align-items:center; justify-content:center; margin: 0 auto; max-width: 400px;">
-            <input type="email" id="subscribeEmail" placeholder="Enter your email" data-en-placeholder="Enter your email" data-ar-placeholder="أدخل بريدك الإلكتروني" style="width: 100%;">
-            <button id="subscribeBtn" data-en="Subscribe" data-ar="اشترك" style="margin-left: 10px; background:#000; color:#fff;">Subscribe</button>
+            <input type="email" id="subscribeEmail" placeholder="Enter your email" style="width: 100%;">
+            <button id="subscribeBtn" class="subscribe-btn">Subscribe</button>
             <div id="subscribeTooltip" class="subscribe-tooltip" style="display:none;">You have already subscribed.</div>
         </div>
         <div class="footer-logo">
@@ -1149,18 +1129,16 @@
             const wrapper = document.getElementById('subscribeFormWrapper');
             const emailInput = document.getElementById('subscribeEmail');
             const email = emailInput.value.trim();
-            // Remove previous error/success
-            emailInput.classList.remove('error', 'success');
+            // Remove previous error
             removeInlineMessage(wrapper);
             // Validate email
             if (!validateEmail(email)) {
-                emailInput.classList.add('error');
                 showInlineMessage(wrapper, 'Please enter a valid email address', 'subscribe-error');
                 return;
             }
-            // Show loader
+            // Hide form fields
             wrapper.innerHTML = `
-                <div class='subscribe-loader' style='display:flex; align-items:center; justify-content:center; gap:10px;'>
+                <div class='subscribe-loader' style='display:flex; align-items:center; justify-content:center; gap:10px; min-height:48px;'>
                     <span class='loader-spinner'></span>
                     <span>Subscribing...</span>
                 </div>
@@ -1173,10 +1151,14 @@
                 if (success) {
                     isSubscribed = true;
                     wrapper.innerHTML = `
-                        <input type='text' class='subscribe-input success' value='You have subscribed successfully!' readonly style='width:100%; margin-bottom:10px;'>
-                        <button id='unsubscribeBtn' class='subscribe-btn'>Unsubscribe</button>
+                        <div class='subscribe-success-message' style='color:#28a745; font-size:16px; font-weight:600; text-align:center; margin:10px 0;'>Successfully subscribed!</div>
                     `;
-                    document.getElementById('unsubscribeBtn').onclick = handleUnsubscribeClick;
+                    setTimeout(() => {
+                        wrapper.innerHTML = `
+                            <button id='unsubscribeBtn' class='subscribe-btn'>Unsubscribe</button>
+                        `;
+                        document.getElementById('unsubscribeBtn').onclick = handleUnsubscribeClick;
+                    }, 1800);
                 } else {
                     showFormWithError(wrapper, 'Subscription failed. Please try again.');
                 }
@@ -1186,7 +1168,17 @@
         }
         function handleUnsubscribeClick() {
             isSubscribed = false;
-            resetForm();
+            const wrapper = document.getElementById('subscribeFormWrapper');
+            // Show unsubscribing loader
+            wrapper.innerHTML = `
+                <div class='subscribe-loader' style='display:flex; align-items:center; justify-content:center; gap:10px; min-height:48px;'>
+                    <span class='loader-spinner'></span>
+                    <span>Unsubscribing...</span>
+                </div>
+            `;
+            setTimeout(() => {
+                resetForm();
+            }, 1500);
         }
         function resetForm() {
             const wrapper = document.getElementById('subscribeFormWrapper');
@@ -1209,14 +1201,14 @@
             wrapper.appendChild(msg);
         }
         function removeInlineMessage(wrapper) {
-            const prev = wrapper.querySelector('.subscribe-error, .subscribe-success');
+            const prev = wrapper.querySelector('.subscribe-error, .subscribe-success-message');
             if (prev) prev.remove();
         }
         function showFormWithError(wrapper, errorMsg) {
             wrapper.innerHTML = `
                 <input type="email" id="subscribeEmail" class="subscribe-input error" placeholder="Enter your email" style="width: 100%;">
                 <button id="subscribeBtn" class="subscribe-btn">Subscribe</button>
-                <div class="subscribe-error">${errorMsg}</div>
+                <div class="subscribe-error" style="color:#dc3545; font-size:14px; font-weight:500; text-align:center; margin:10px 0;">${errorMsg}</div>
             `;
             document.getElementById('subscribeBtn').onclick = handleSubscribeClick;
         }
